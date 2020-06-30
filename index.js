@@ -1,17 +1,27 @@
-const btn = document.querySelector('.button');
+let people = ['saish', 'Nikhil','Harsha','Tanish','Shivam'];
 
-btn.addEventListener('drag',function(e){
-    console.log(e);
-    console.log('hi')
+
+
+people.forEach((pip)=>{
+
+
+  console.log(pip)
 })
 
 
-btn.addEventListener('focus',function(){
-    console.log('bye')
-    console.log(e);
-    e.addEventListener("keyup", event => {
-        console.log(event);
-        // do something
-      });
-})
+const myfunc =  (callBack) => {
 
+let num = 1;
+
+callBack(1)
+
+
+}
+
+
+myfunc(function(value){
+  console.log(value)
+
+
+
+})
