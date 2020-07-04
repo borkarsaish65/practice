@@ -6,3 +6,32 @@
     color: chartreuse;
     background-color: chartreuse;
 }
+.mainDiv{
+background-color: yellow;
+height:500px;
+width:500px;
+}
+.div1{
+  
+    position: fixed;
+    background-color: green;
+    height:200px;
+    width:200px;
+
+
+
+    top:50%;
+    left:50%;
+    justify-content: center;
+    align-items: center;
+    }
+    .div2{
+        display:none;
+        position: relative;
+        background-color: red;
+        height:200px;
+        width:200px;
+        margin-left: 60px;
+        left:200px;
+        
+        }
