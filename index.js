@@ -1,34 +1,28 @@
-var canvas = document.getElementById("canvas");
-var original = new MarvinImage();
-var image;
+let counter = 0;
 
-original.load("1.png", function(){
-   // Draw the original image 
-   original.draw(canvas);
+const getDate = () =>{
+//calls api and gets data
+
+console.log('fetching data...',counter++)
+}
+
+const dosomemagic = (fn,delay)=>{
+
+  return function () {
+setTimeout(() => {
+  getDate();
+}, delay);
 
 
-   function edgeDetection2(){
-    image = original.clone();
-    image.clear(0xFF000000);
-    Marvin.prewitt(original, image);
-    Marvin.invertColors(image, image);
-    Marvin.thresholding(image, image, 200);
-    image.draw(canvas);
+
   }
-  
-  
-   edgeDetection2()
+
+}
 
 
 
-  function thresholding(){
-    image = original.clone();
-    Marvin.thresholding(original, image, 160);
-    image.draw(canvas);
-  }
-  
-  
-  //thresholding()
-});
 
+
+
+const betterfunction = dosomemagic(getDate,300);
 
