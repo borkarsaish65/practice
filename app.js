@@ -1,8 +1,52 @@
-var counter = require('./count');
+var events = require('events');
 
-console.log(counter.counter(['Saish','Nikhil','Rahul',"saish"]));
+var count = require('./count');
 
-console.log(counter.addNum(10,20));
+var myEmmiter = new events.EventEmitter();
 
-console.log(counter.pi);
+myEmmiter.on('someEvent',function(msg){
+    console.log(msg)
+})
 
+
+myEmmiter.emit('someEvent','This msg was emmited')
+
+var util = require('util')
+
+
+var Person = function (name)
+{
+    this.name = name;
+}
+
+
+util.inherits(Person,events.EventEmitter);
+
+
+var James = new Person('James');
+
+var Mary = new Person('Mary');
+
+var Peter = new Person('Peter');
+
+var people = [James,Mary,Peter];
+
+people.forEach((person)=>{
+
+    person.on('speak',function(msg)
+    {
+        console.log(person.name+'said:'+msg);
+    })
+
+
+
+})
+
+
+James.emit('speak','Hello Peter!');
+
+Peter.emit('speak','Hi! Hello Peter!');
+
+Mary.emit('speak',"are you'll done saying hellos");
+
+console.log(count.addNum(5,5));
